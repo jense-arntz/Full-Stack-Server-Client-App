@@ -1,0 +1,21 @@
+{% extends "Base_template.html" %}
+{% block name %}{{ name }}{% endblock %}
+{% block title %}Dashboard{% endblock %}
+{% block logpage %}
+   <ul class="nav nav-second-level collapse" style="height: auto;" id="log_level">
+      <li id="log_app">
+         <a href="/Log/App">Application Page</a>
+      </li>
+      <li id="log_sys">
+         <a href="/Log/Sys">System Page</a>
+      </li>
+   </ul>
+{% endblock %}
+{% block content %}
+{% endblock %}
+{% block script %}
+   <script type="text/javascript">
+      $('#dashboard').addClass('selected');
+
+   </script>
+{% endblock %}

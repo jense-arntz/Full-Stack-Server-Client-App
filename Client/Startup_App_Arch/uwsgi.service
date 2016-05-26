@@ -1,0 +1,15 @@
+# /etc/systemd/system/uwsgi.service
+[Unit]
+description=uWSGI Server
+
+[Service]
+ExecStart=/usr/bin/uwsgi --emperor "/IIC-Client/Client/Startup_App_Arch/app.uwsgi.ini" --uid=http --gi
+SuccessExitStatus=30
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGINT
+Restart=always
+Type=notify
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,68 @@
+{% extends "Base_template_log.html" %}
+{% block name %}{{ name }}{% endblock %}
+{% block title %}Log{% endblock %}
+{% block logpage %}
+   <ul class="nav nav-second-level collapse in" style="height: auto;" id="log_level">
+      <li id="log_app">
+         <a href="/Log/App">Application Page</a>
+      </li>
+      <li id="log_sys" class="selected">
+         <a href="/Log/Sys">System Page</a>
+      </li>
+   </ul>
+{% endblock %}
+{% block content %}
+   <div class="panel panel-primary">
+      <div class="panel-heading">
+         <i class="fa fa-clock-o fa-fw"></i>System Logs
+      </div>
+
+      <div class="panel-body" id="log">
+         <div class="row">
+               <textarea class="form-control" id="sys_content" rows="30" cols="40" readonly
+                         style="resize: none; overflow-y: scroll;"></textarea>
+         </div>
+         <p style="margin-top: 30px"></p>
+
+         <div class="row">
+            <div class="col-lg-3">
+               <button type="button" class="btn btn-outline btn-warning" id="refresh">Refresh</button>
+            </div>
+            <div class="col-lg-3">
+               <button type="button" class="btn btn-outline btn-danger" id="clear">Clear Logs</button>
+            </div>
+         </div>
+      </div>
+   </div>
+{% endblock %}
+{% block script %}
+   <script type="text/javascript">
+      $('#log_sys').addClass("selected");
+      getlog();
+      $('#refresh').click(function () {
+         getlog();
+      });
+
+      $('#clear').click(function () {
+         $.ajax({
+            type: "GET",
+            dataType: "text",
+            url: "/api/log/Clearsys",
+            success: function (data) {
+               alert(data);
+               getlog();
+            }
+         });
+      });
+      function getlog() {
+         $.getJSON("/api/log/Sys", function (data) {
+            var items = [];
+            $.each(data, function (key, val) {
+               items.push(val);
+            });
+            $("#sys_content").val(items);
+         });
+      }
+
+   </script>
+{% endblock %}

@@ -1,0 +1,14 @@
+[Unit]
+Description=CeeProxy
+
+[Service]
+ExecStart=/IIC-Client/Client/cliproxy/ceeproxy.py "" --uid=root --gid=root
+SuccessExitStatus=30
+ExecReload=/bin/kill -HUP $MAPINFO
+KillSignal=SIGINT
+Restart=always
+Type=notify
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target

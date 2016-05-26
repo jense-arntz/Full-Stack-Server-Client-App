@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Client Web Interface</title>
+   <!-- Core CSS - Include with every page -->
+   <link href="{{ url_for('static', filename='/plugins/bootstrap/bootstrap.css') }}" rel="stylesheet"/>
+   <link href="{{ url_for('static', filename='/font-awesome/css/font-awesome.css') }}" rel="stylesheet"/>
+   <link href="{{ url_for('static', filename='/plugins/pace/pace-theme-big-counter.css') }}" rel="stylesheet"/>
+   <link href="{{ url_for('static', filename='/css/style.css') }}" rel="stylesheet"/>
+   <link href="{{ url_for('static', filename='/css/main-style.css') }}" rel="stylesheet"/>
+   <link href="{{ url_for('static', filename='/bootstrap/css/bootstrap.min.css') }}" media="screen"/>
+   <link href="{{ url_for('static', filename='/css/bootstrap-datetimepicker.min.css') }}" media="screen"/>
+   <!-- Page-Level CSS -->
+   <link href="{{ url_for('static', filename='/plugins/morris/morris-0.4.3.min.css') }}" rel="stylesheet"/>
+
+</head>
+<body>
+<!--  wrapper -->
+<div id="wrapper">
+
+   <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+      <!-------------------------------Start Page-Header -------------------------------------->
+      <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="/">
+{#            <img src="{{ url_for('static', filename='/img/logo.png') }}" alt=""/>#}
+
+         </a>
+      </div>
+   </nav>
+   <!---------------------------------End Page-Header-------------------------------------->
+
+   <!---------------------------------Start Side-Bar-------------------------------------->
+   <nav class="navbar-default navbar-static-side" role="navigation">
+      <!-- sidebar-collapse -->
+      <div class="sidebar-collapse">
+         <!------------- side-menu ------------->
+         <ul class="nav" id="side-menu">
+            <li>
+               <!-- user image section-->
+               <div class="user-section">
+
+               </div>
+               <!--end user image section-->
+            </li>
+
+            <li id="network">
+               <a href="/Network_Settings"><i class="fa fa-bar-chart-o fa-fw"></i> Network settings </a>
+            </li>
+            <li id="remote">
+               <a href="/Remote_Communication"><i class="fa fa-flask fa-fw"></i>Remote Communications</a>
+            </li>
+            <li id="camera">
+               <a href="/Camera_Config"><i class="fa fa-table fa-fw"></i>Camera Config</a>
+            </li>
+            <li id="system">
+               <a href="/System_Settings"><i class="fa fa-edit fa-fw"></i>System Settings</a>
+            </li>
+            <li id="log">
+               <a href="#"><i class="fa fa-files-o fa-fw"></i>Log Pages<span class="fa arrow"></span></a>
+               {% block logpage %}
+
+               {% endblock %}
+               <!-- second-level-items -->
+            </li>
+            <li>
+               <a href="/logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+            </li>
+         </ul>
+         <!------------ end side-menu ------------->
+      </div>
+      <!-- end sidebar-collapse -->
+   </nav>
+   <!---------------------------------End Side-Bar -------------------------------------->
+
+   <!----------------------------------Start page-wrapper-------------------------------->
+   <div id="page-wrapper">
+      <div class="row">
+         <!---------Start Page Header------->
+         <div class="col-lg-12">
+            <h1 class="page-header">{% block title %}{% endblock %}</h1>
+         </div>
+         <!----------End Page Header-------->
+      </div>
+      {% block content %}
+      {% endblock %}
+   </div>
+</div>
+
+<!----------------------------------End page-wrapper-------------------------------->
+
+<!-- Core Scripts - Include with every page -->
+<script src="{{ url_for('static', filename='/plugins/jquery-1.10.2.js') }}"></script>
+<script src="{{ url_for('static', filename='/plugins/bootstrap/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
+<script src="{{ url_for('static', filename='/plugins/pace/pace.js') }}"></script>
+
+<!-- Page-Level Plugin Scripts-->
+<script src="{{ url_for('static', filename='/plugins/morris/raphael-2.1.0.min.js') }}"></script>
+<script src="{{ url_for('static', filename='/plugins/morris/morris.js') }}"></script>
+<script src="{{ url_for('static', filename='/scripts/dashboard-demo.js') }}"></script>
+<script type="text/javascript">
+$('#log').click(function () {
+   $('#log').toggleClass("active");
+   $('#log_level').toggleClass("in");
+});
+
+$('#log_app').click(function(){
+   $('#log').addClass("active");
+   $('#log_level').addClass("nav nav-second-level collapse in").addStyle("height:auto;");
+   $('#log_app').addClass("selected");
+});
+
+$('#log_Sys').click(function(){
+   $('#log').addClass("active");
+   $('#log_level').addClass("nav nav-second-level collapse in").addStyle("height:auto;");
+   $('#log_sys').addClass("selected");
+})
+</script>
+{% block script %}
+{% endblock %}
+</body>
+
+</html>

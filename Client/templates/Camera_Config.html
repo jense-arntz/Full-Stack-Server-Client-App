@@ -1,0 +1,227 @@
+{% extends "Base_template.html" %}
+{% block name %}{{ name }}{% endblock %}
+{% block title %}Camera Config{% endblock %}
+{% block logpage %}
+   <ul class="nav nav-second-level collapse" style="height: auto;" id="log_level">
+      <li id="log_app">
+         <a href="/Log/App">Application Page</a>
+      </li>
+      <li id="log_sys">
+         <a href="/Log/Sys">System Page</a>
+      </li>
+   </ul>
+{% endblock %}
+{% block content %}
+   <div class="col-lg-12">
+      <p style="margin-top: 50px"></p>
+
+      <div class="row"></div>
+      <form role="form" id="form-camera">
+         <div class="row">
+            <div class="col-lg-4">
+               <div class="form-group has-success">
+                  <label class="control-label" for="inputWarning">JPEG Compression Settings</label>
+                  <input type="text" name="jpeg-compression-settings" value="" readonly="readonly" class="form-control">
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="form-group has-success">
+                  <label class="control-label" for="inputWarning">White Balance</label>
+                  <input type="text" name="white-balance" value="" class="form-control" readonly="readonly">
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="form-group has-success">
+                  <label class="control-label" for="inputWarning">F-Number</label>
+                  <input type="text" name="f-number" value="" class="form-control" readonly="readonly">
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-4">
+               <div class="form-group has-success">
+                  <label class="control-label" for="inputWarning">Exposure Metering Mode</label>
+                  <input type="text" name="exposure-metering-mode" value="" class="form-control" readonly="readonly">
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="form-group has-success">
+                  <label class="control-label" for="inputWarning">ISO</label>
+                  <input type="text" name="iso" value="" class="form-control" readonly="readonly">
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="form-group has-success">
+                  <label class="control-label" for="inputWarning">Exposure Compensation</label>
+                  <input type="text" name="exposure-compensation" value="" class="form-control" readonly="readonly">
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-4">
+               <div class="form-group has-success">
+                  <label class="control-label" for="inputWarning">Still Capture Mode</label>
+                  <input type="text" name="still-capture-mode" value="" class="form-control" readonly="readonly">
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="form-group has-success">
+                  <label class="control-label" for="inputWarning">Auto ISO</label>
+                  <input type="text" name="auto-iso" value="" class="form-control" readonly="readonly">
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="form-group has-success">
+                  <label class="control-label" for="inputWarning">Long Exposure Noise Reduction</label>
+                  <input type="text" name="long-exposure-noise-reduction" value="" class="form-control" readonly="readonly">
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-4">
+               <div class="form-group has-success">
+                  <label class="control-label" for="inputWarning">Autofocus Mode</label>
+                  <input type="text" name="autofocus-mode" value="" class="form-control" readonly="readonly">
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="form-group has-success">
+                  <label class="control-label" for="inputWarning">Af Assist Lamp</label>
+                  <input type="text" name="af-assist-lamp" value="" class="form-control" readonly="readonly">
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="form-group has-success">
+                  <label class="control-label" for="inputWarning">Auto ISO Hight Limit</label>
+                  <input type="text" name="auto-iso-hight-limit" value="" class="form-control" readonly="readonly">
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="form-group has-success">
+                  <label class="control-label" for="inputWarning">Free Space SD Card</label>
+                  <input type="text" name="free-space-sd-card" value="" class="form-control" readonly="readonly">
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="form-group has-success">
+                  <label class="control-label" for="inputWarning">Current Focal Length</label>
+                  <input type="text" name="current-focal-length" value="" class="form-control" readonly="readonly">
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="form-group has-success">
+                  <label class="control-label" for="inputWarning">Exposure Time</label>
+                  <input type="text" name="exposure-time" value="" class="form-control" readonly="readonly">
+               </div>
+            </div>
+         </div>
+         <div class="row">
+
+            <div class="col-lg-4">
+               <div class="form-group has-success">
+                  <label class="control-label" for="inputWarning">Exposure Program Mode</label>
+                  <input type="text" name="exposure-program-mode" value="" class="form-control" readonly="readonly">
+               </div>
+            </div>
+         </div>
+
+         <p style="margin-top: 30px"></p>
+
+         <div class="row">
+            <div class="col-lg-4">
+               <div class="form-group has-warning">
+                  <label class="control-label" for="inputWarning">Manufactuer</label>
+                  <input type="text" readonly="readonly" name="manufactuer" value="" class="form-control">
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="form-group has-warning">
+                  <label class="control-label" for="inputWarning">Model</label>
+                  <input type="text" readonly="readonly" name="model" value="" class="form-control">
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="form-group has-warning">
+                  <label class="control-label" for="inputWarning">Version</label>
+                  <input type="text" readonly="readonly" name="version" value="" class="form-control">
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-4">
+               <div class="form-group has-warning">
+                  <label class="control-label" for="inputWarning">Serial Number</label>
+                  <input type="text" readonly="readonly" name="serial-number" value="" class="form-control">
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="form-group has-warning">
+                  <label class="control-label" for="inputWarning">Shutter Count</label>
+                  <input type="text" readonly="readonly" name="shutter-count" value="" class="form-control">
+               </div>
+            </div>
+         </div>
+
+         <p style="margin-top: 100px"></p>
+
+         <div class="row">
+            <div class="form-group">
+               <div class="col-lg-5"></div>
+               <div class="col-lg-5">
+                  <button type="button" class="btn btn-primary btn-lg" id="reset">Reset
+                  </button>
+               </div>
+            </div>
+         </div>
+      </form>
+   </div>
+{% endblock %}
+{% block script %}
+   <script type="text/javascript">
+      //initialize the javascript
+      $('#camera').addClass("selected");
+      get_setting();
+      // <-------------------------Get the IP Settings from Camera---------------------->
+      function get_setting() {
+         $.getJSON('/api/control/summary', function (data) {
+            $.each(data, function (key, item) {
+               $('#form-camera')
+                     .find('[name="jpeg-compression-settings"]').val(item.jpeg_compression_settings).end()
+                     .find('[name="white-balance"]').val(item.white_balance).end()
+                     .find('[name="f-number"]').val(item.f_number).end()
+                     .find('[name="exposure-metering-mode"]').val(item.exposure_metering_mode).end()
+                     .find('[name="iso"]').val(item.iso).end()
+                     .find('[name="exposure-compensation"]').val(item.exposure_compensation).end()
+                     .find('[name="still-capture-mode"]').val(item.still_capture_mode).end()
+                     .find('[name="auto-iso"]').val(item.auto_iso).end()
+                     .find('[name="long-exposure-noise-reduction"]').val(item.long_exposure_noise_reduction).end()
+                     .find('[name="autofocus-mode"]').val(item.autofocus_mode).end()
+                     .find('[name="af-assist-lamp"]').val(item.af_assist_lamp).end()
+                     .find('[name="auto-iso-hight-limit"]').val(item.auto_iso).end()
+                     .find('[name="manufactuer"]').val(item.manufacturer).end()
+                     .find('[name="model"]').val(item.model).end()
+                     .find('[name="version"]').val(item.version).end()
+                     .find('[name="serial-number"]').val(item.serial_number).end()
+                     .find('[name="free-space-sd-card"]').val(item.free_space_sd_card).end()
+                     .find('[name="current-focal-length"]').val(item.current_focal_length).end()
+                     .find('[name="exposure-time"]').val(item.exposure_time).end()
+                     .find('[name="exposure-program-mode"]').val(item.exposure_program_mode).end()
+                     .find('[name="shutter-count"]').val(item.shutter_count).end();
+            });
+         });
+      }
+
+      $('#reset').click(function () {
+         $.ajax({
+            type: "GET",
+            dataType: "text",
+            url: "/api/camera/reset",
+            success: function (data) {
+               alert(data);
+               get_setting();
+            }
+         });
+      });
+
+   </script>
+{% endblock %}
